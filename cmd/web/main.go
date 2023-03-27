@@ -33,6 +33,12 @@ func main() {
 	}
 	defer db.SQL.Close()
 
+	defer close(app.MailChan)
+
+	fmt.Println("Starting mail listener...")
+	listenForMail()
+
+
 	fmt.Println(fmt.Sprintf("Staring application on port %s", portNumber))
 
 	srv := &http.Server{
@@ -52,6 +58,10 @@ func run() (*driver.DB, error) {
 	gob.Register(models.User{})
 	gob.Register(models.Room{})
 	gob.Register(models.Restriction{})
+	gob.Register(map[string]int{})
+
+	mailChan := make(chan models.MailData)
+	app.MailChan = mailChan
 
 	// change this to true when in production
 	app.InProduction = false
@@ -71,9 +81,12 @@ func run() (*driver.DB, error) {
 
 	app.Session = session
 
+	
+	
+
 	// connect to database
 	log.Println("Connecting to the database...")
-	db, err := driver.ConnectSQL("host=localhost port=5432 dbname=bookings user=postgres password=dog1234" )
+	db, err := driver.ConnectSQL("host=localhost port=5432 dbname=bookings user=postgres password=dog1234")
 
 	if err != nil {
 		log.Fatal("Cannot connecto to databas! Dying...")
@@ -85,7 +98,6 @@ func run() (*driver.DB, error) {
 		log.Fatal("cannot create template cache")
 		return nil, err
 	}
-	
 
 	app.TemplateCache = tc
 	app.UseCache = false
