@@ -116,10 +116,37 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// sd := r.Form.Get("start_date")
+	// ed := r.Form.Get("start_date")
+
+	// layout := "2006-01-02"
+
+	// startDate, err := time.Parse(layout, sd)
+	// if err != nil {
+	// 	m.App.Session.Put(r.Context(), "error", "cant parse start date")
+	// 	http.Redirect(w,r, "/", http.StatusSeeOther)
+	// 	return
+	// }
+	// endDate, err := time.Parse(layout, ed)
+	// if err != nil {
+	// 	m.App.Session.Put(r.Context(), "error", "cant parse start date")
+	// 	http.Redirect(w,r, "/", http.StatusSeeOther)
+	// 	return
+	// }
+
 	reservation.FirstName = r.Form.Get("first_name")
 	reservation.LastName = r.Form.Get("last_name")
 	reservation.Phone = r.Form.Get("phone")
 	reservation.Email = r.Form.Get("email")
+
+	
+
+	sd := r.Form.Get("start_date")
+	ed := r.Form.Get("end_date")
+
+	stringMap := make(map[string]string)
+	stringMap["start_date"] = sd
+	stringMap["end_date"] = ed
 
 	form := forms.New(r.PostForm)
 
@@ -134,6 +161,7 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		render.Template(w, r, "make-reservation.page.tmpl", &models.TemplateData{
 			Form: form,
 			Data: data,
+			StringMap: stringMap,
 		})
 		return
 	}
