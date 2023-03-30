@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
 
     <style>
-        .btn-outline-secondary {
+        /* .btn-outline-secondary {
             color: aqua;
             border-color: #6c757d;
         }
@@ -36,67 +36,19 @@
 
         #lastPara {
             text-decoration: underline;
-        }
+        } */
+
+
     </style>
 
 </head>
 
 <body>
 
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/about">About</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Rooms
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="/generals-quaters">General's Quarters</a>
-                    <a class="dropdown-item" href="/majors-suite">Major's Suite</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/search-availability">Book Now</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact</a>
-            </li>
-            <li class="nav-item">
-                {{if eq .IsAuthenticated 1}}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Admin
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/admin/dashboard">Dashboard</a>
-                        <a class="dropdown-item" href="/user/logout">Logout</a>
-                    </div>
-                </li>
-                {{else}}
-                    <a class="nav-link" href="/user/login">Login</a>
-                {{end}}
-            </li>
-
-        </ul>
-    </div>
-</nav> -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">&nbsp;</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -138,12 +90,7 @@
                 <a class="nav-link" href="/user/login">Login</a>
             {{end}}
         </li>
-          
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>
@@ -159,18 +106,23 @@
 
    
 
-<footer class="my-footer">
+<footer class="row my-footer">
     <div class="row">
-        <div class="col">
-            left
+        <div class="col text-center">
+            <strong>Fort Smythe Bed &amp; Breakfast</strong> <br>
+            100 Rocky Road
+            Tegucigalpa, Fracisco Morazán <br>
+            Honduras <br>
+            (504) 988-888 <br>
+            <a href="mailto:info@fsbb.ca">info@fsbb</a>
         </div>
 
         <div class="col">
-            center
+          
         </div>
 
-        <div class="col">
-            right
+        <div class="col text-center" >
+            <strong>Your Home Away<br>From Home</strong>
         </div>
     </div>
 </footer>
